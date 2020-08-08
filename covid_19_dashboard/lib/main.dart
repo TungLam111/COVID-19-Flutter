@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'structure.dart';
-//import 'package:covid_19_dashboard/fetch.dart';
 import 'package:http/http.dart' as http;
-//import 'dart:async';
 import 'dart:convert';
+import 'mainhome.dart';
 import 'data.dart';
+import 'calendar_select.dart';
 void main() => runApp(App());
 
 class App extends StatelessWidget {
@@ -13,12 +13,13 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: MyApp());
+        home: MainHome());
   }
 }
+
 Future<List<Detail>> fetchDetail() async {
     final response =
-      await http.get('https://disease.sh/v3/covid-19/countries');// https://corona.lmao.ninja/v2/countries');
+      await http.get('https://disease.sh/v3/covid-19/countries');
   
     if (response.statusCode == 200) {
      final jsonObject = json.decode(response.body);
@@ -39,12 +40,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Future<List<Detail>> futureAlbum;
+  //Future<List<Detail>> futureAlbum;
   List futureFlag ;
   @override
   void initState() {
     super.initState();
-    futureAlbum = fetchDetail();
+    //futureAlbum = fetchDetail();
     futureFlag = getFlag();
   }
 
@@ -60,33 +61,17 @@ class _MyAppState extends State<MyApp> {
           title: Text('Fetch Data Example'),
         ),
         body: Center(
-          child: FutureBuilder<List<Detail>>(
-            future: futureAlbum,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final result = snapshot.data;
-                print(result.length);
-                return ListView.builder(
-                  itemCount: result.length,
+          child: ListView.builder(
+                  itemCount: flag.length,
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {             
-          final menu = result[index];
           return Center(
-            child:  Text("${menu.flag}")
-          );
-        }
+            child:  Text("${flag[index]}")
                 );
-                
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-
-              // By default, show a loading spinner.
-              return CircularProgressIndicator();
-            },
+        }   
+          ),
           ),
         ),
-      ),
     );
   }
 }

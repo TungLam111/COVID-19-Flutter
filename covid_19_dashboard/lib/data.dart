@@ -216,3 +216,4 @@ List getFlag() {
 "https://disease.sh/assets/img/flags/zm.png",
 "https://disease.sh/assets/img/flags/zw.png",
 ]; }
+final flag = getFlag();

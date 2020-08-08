@@ -54,22 +54,149 @@ class CategoryScroller extends StatelessWidget {
 class Search extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    return Row(
-      children: <Widget>[
-        Container(
-          width: MediaQuery.of(context).size.width * 0.8,
+    return 
+    Container(
+     padding: EdgeInsets.all(10),
+        child: Container(
+        
+          padding: EdgeInsets.only(top: 10),
+          width: MediaQuery.of(context).size.width * 0.5,
+          
           child: GestureDetector(
             onTap: (){},
-            child: Text("Enter location", style: TextStyle(color: Colors.grey, fontSize: 15))
+            child: Text("Enter",textAlign: TextAlign.center, style: TextStyle(color: Colors.grey, fontSize: 15))
           ),
        decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.all(Radius.circular(20))) 
-       ),
-        SizedBox(),
-        IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
-            ),
-      ],
-    ) ;
+    )
+  );
+    
   }
+}
+class InfoDetail extends StatelessWidget{
+  var info;
+  InfoDetail({@required  this.info});
+  
+  @override 
+  Widget build(BuildContext context){
+    return Container(
+      padding: EdgeInsets.only(top : 15, left:50),
+      height: MediaQuery.of(context).size.height * 0.25,
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.all(Radius.circular(15))) ,
+      child: Column(
+        children: <Widget>[
+          Row(children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 20),
+              height: 60,
+              width: 110,
+              child: Text("${info.cases}", style: TextStyle(color: Colors.white),  textAlign: TextAlign.center,),
+              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(10))) ,
+            ),
+            SizedBox(
+              width: 15
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 20),
+              height: 60,
+              width: 110,
+              child: Text("${info.deaths}", style: TextStyle(color: Colors.white), textAlign: TextAlign.center,),
+              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(10))) ,
+            )
+            
+          ],),
+          SizedBox(height : 10),
+          Row(children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 20),
+              height: 60,
+              width: 110,
+              child: Text("${info.recovered}", style: TextStyle(color: Colors.white), textAlign: TextAlign.center,),
+              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(10))) ,
+            ),
+            SizedBox(
+              width: 15
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 20),
+              height: 60,
+              width: 110,
+              child: Text("${info.active}", style: TextStyle(color: Colors.white),  textAlign: TextAlign.center,),
+              decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(10))) ,
+            )
+          ],),
+        ],
+      )
+    );
+  }
+}
+
+class CardList extends StatelessWidget {
+  var detail;
+  var flag;
+  CardList({@required  this.detail, this.flag});
+@override
+Widget build(BuildContext context){
+  return Card(
+    elevation: 10,
+    child: Row(
+    children : <Widget>[
+      SizedBox(width: 13),
+       Column(
+      children: <Widget> [
+        Text("${detail.country}"),
+        Container(
+                        width : 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(29),
+                          border: Border.all(
+                          color: Colors.grey,
+                          width: 2,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 25.0,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(flag.toString()),
+                        )),
+      ]
+    ),
+    SizedBox( width: 10),
+    Column(
+      children: <Widget>[
+
+      Text("Cases", style: TextStyle(fontWeight: FontWeight.bold),),
+      SizedBox(height: 10),
+      Text("${detail.cases}")
+      ]
+    ),
+    SizedBox( width: 10),
+    Column(
+      children:<Widget> [
+      Text("Deaths",style: TextStyle(fontWeight: FontWeight.bold),),
+      SizedBox(height: 10),
+      Text("${detail.deaths}")
+      ]
+    ),
+    SizedBox( width: 10),
+    Column(
+      children: <Widget>[
+      Text("Recovered", style: TextStyle(fontWeight: FontWeight.bold),),
+      SizedBox(height: 10),
+      Text("${detail.recovered}")
+      ]
+    ),
+    SizedBox( width: 10),
+    Column(
+      children: <Widget>[
+      Text("Active",style: TextStyle(fontWeight: FontWeight.bold),),
+      SizedBox(height: 10),
+      Text("${detail.active}")
+      ]
+    )
+    ],
+    
+
+    )) ;
+}
 }

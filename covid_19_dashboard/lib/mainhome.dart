@@ -5,8 +5,9 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'structure.dart';
-import 'fetch.dart';
-import 'constants.dart';
+//import 'constants.dart';
+import 'mainpage.dart';
+import 'data.dart';
 
 class MainHome extends StatefulWidget{
 
@@ -17,36 +18,44 @@ class MainHome extends StatefulWidget{
 }
 
 class _MainHomeState extends State<MainHome> {
-
-  final CategoryScroller categoriesScroller = CategoryScroller();
-  ScrollController controller = ScrollController();
-  bool closeTopContainer = false;
-  double topContainer = 0;
-
+ // List _flag;
   List _countries = [];
   HashMap _map = new HashMap<String, Detail>();
+  HashMap _mymap = new HashMap<String, String>();
 //fetch data of list of country
   Future<List<Detail>> fetchDetail() async {
-    final response =
+    var response =
       await http.get('https://corona.lmao.ninja/v2/countries');
   
     if (response.statusCode == 200) {
-     final jsonObject = json.decode(response.body);
+     var jsonObject = json.decode(response.body);
       return jsonObject
         .map<Detail>((json) => Detail.fromJson(json))
         .toList(growable: false);
+  } else {
+    throw Exception('${response.statusCode}');
     
+  }
+}
+Future<Map<String, List<Detail>>> fetchTimeSeri() async {
+    var response =
+      await http.get('https://pomber.github.io/covid19/timeseries.json');
+  
+    if (response.statusCode == 200) {
+     var jsonObject = json.decode(response.body);
+      return jsonObject
+        .map<Detail>((json) => Detail.fromJson(json))
+        .toList(growable: false);
   } else {
     throw Exception('${response.statusCode}');
     
   }
 }
 // fetch data of world
-  
   Future<Detail> fetchAll() async {
-    final response = await http.get('https://corona.lmao.ninja/v2/all');
+    var response = await http.get('https://corona.lmao.ninja/v2/all');
      if (response.statusCode == 200) {
-    final jsonObject = json.decode(response.body);
+    var jsonObject = json.decode(response.body);
     return Detail.fromJson(jsonObject);
   }
   else {
@@ -56,72 +65,64 @@ class _MainHomeState extends State<MainHome> {
   @override
   void initState() {
     super.initState();
-
+    //_flag = getFlag();
     fetchDetail().then((value){
       for (var i = 0; i< value.length; i++){
         _countries.add(value[i].country);
-        value[i].flag = "haha";
+        _mymap[value[i].country] = flag[i];
         _map[value[i].country] = value[i];
+
     }
     fetchAll().then((res) {
       return Navigator.push(context, MaterialPageRoute(
-            builder: (context) => Worldwide(value: value, info: res, countries: _countries, map: _map,)));
-  });
-  });
-    controller.addListener(() {
-
-      double value = controller.offset/119;
-
-      setState(() {
-        topContainer = value;
-        closeTopContainer = controller.offset > 50;
-      });
+            builder: (context) => Worldwide(value: value, info: res, countries: _countries, map: _map, mymap: _mymap)));
+    });
     });
 
   }
 
   @override
-  Widget build(BuildContext context){
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed : (){},
-          ),
-          actions: <Widget>[
-            Search(),
-            IconButton(
-              icon: Icon(Icons.person),
-              onPressed: () {},
-            )
-          ],
-        ),
-        body: Container(
-          child: Column(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              AnimatedOpacity(
-                duration: const Duration(milliseconds: 200),
-                opacity: closeTopContainer?0:1,
-                child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    width: MediaQuery.of(context).size.width* 0.9,
-                    alignment: Alignment.topCenter,
-                    height: closeTopContainer?0:MediaQuery.of(context).size.height* 0.3,
-                    child: CategoryScroller()),
+              Container(
+                padding: EdgeInsets.fromLTRB(0, 100, 0, 50),
+                child: Image(
+                  image: AssetImage('assets/images/meliquestreet_20200723_111219_0.jpg'),
+                ),
               ),
-
-            ]
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  children: <TextSpan> [
+                    TextSpan(
+                        text: 'STAY ',
+                        style: TextStyle(color: Colors.white)),
+                    TextSpan(
+                        text: 'HOME  ',
+                        style: TextStyle(color: Colors.blueAccent)),
+                    TextSpan(
+                        text: 'STAY ',
+                        style: TextStyle(color: Colors.white)),
+                    TextSpan(
+                        text: 'SAFE',
+                        style: TextStyle(color: Colors.green)),
+                  ]
+                ),
+              )
+            ],
           )
-        ),
-        /*Expanded(
-          child: ListView.builder(
-            controller: controller,
-            
-          )
-        )*/
-    ));
+        ],
+      ),
+    );
   }
 }
