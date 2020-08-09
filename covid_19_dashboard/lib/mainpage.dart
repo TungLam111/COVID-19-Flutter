@@ -54,7 +54,7 @@ class _WorldwideState extends State<Worldwide> {
               _page[0],
               _page[1],
               
-              Text("haha") // forum
+              Text("hyhy") // forum
             ],
           ),
         ),

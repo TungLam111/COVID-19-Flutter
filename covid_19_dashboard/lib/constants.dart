@@ -144,7 +144,7 @@ Widget build(BuildContext context){
       SizedBox(width: 13),
        Column(
       children: <Widget> [
-        Text("${detail.country}"),
+        (detail.country.length < 15)? Text("${detail.country}"):Text("${detail.country.split(" ")[0]}"),
         Container(
                         width : 55,
                         decoration: BoxDecoration(

@@ -8,7 +8,7 @@ import 'structure.dart';
 //import 'constants.dart';
 import 'mainpage.dart';
 import 'data.dart';
-
+import 'timeseri.dart';
 class MainHome extends StatefulWidget{
 
   MainHome({Key key}) : super(key: key);
@@ -37,15 +37,13 @@ class _MainHomeState extends State<MainHome> {
     
   }
 }
-Future<Map<String, List<Detail>>> fetchTimeSeri() async {
+Future<Map<String, dynamic>> fetchTimeSeri() async {
     var response =
       await http.get('https://pomber.github.io/covid19/timeseries.json');
   
     if (response.statusCode == 200) {
      var jsonObject = json.decode(response.body);
-      return jsonObject
-        .map<Detail>((json) => Detail.fromJson(json))
-        .toList(growable: false);
+      return jsonObject;
   } else {
     throw Exception('${response.statusCode}');
     
@@ -65,14 +63,13 @@ Future<Map<String, List<Detail>>> fetchTimeSeri() async {
   @override
   void initState() {
     super.initState();
-    //_flag = getFlag();
     fetchDetail().then((value){
       for (var i = 0; i< value.length; i++){
         _countries.add(value[i].country);
         _mymap[value[i].country] = flag[i];
         _map[value[i].country] = value[i];
 
-    }
+   }
     fetchAll().then((res) {
       return Navigator.push(context, MaterialPageRoute(
             builder: (context) => Worldwide(value: value, info: res, countries: _countries, map: _map, mymap: _mymap)));
