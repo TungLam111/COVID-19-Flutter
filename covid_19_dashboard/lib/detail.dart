@@ -6,7 +6,8 @@ class Countrydata extends StatefulWidget{
   List countries;
   Map map;
   Map mymap;
-  Countrydata({@required this.value, this.info, this.countries, this.map, this.mymap});
+  Map date;
+  Countrydata({@required this.value, this.info, this.countries, this.map, this.mymap, this.date});
 
   @override
   _CountrydataState createState() => _CountrydataState();
@@ -71,7 +72,7 @@ class _CountrydataState extends State<Countrydata> {
                       child:ClipRRect(
                         child : Image(
                           fit: BoxFit.cover,
-                        image: NetworkImage(widget.mymap[val].toString()),//"https://disease.sh/assets/img/flags/zw.png"),
+                        image: NetworkImage(widget.mymap[val].toString()),
                       ),
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -149,10 +150,11 @@ class _CountrydataState extends State<Countrydata> {
                             ),
                           ),
                         ),
+                        
                       ],
                     ),
                   ),
-              Calender(country: val)
+              Calender(country: val, date: widget.date)
                   ],
                 )
               ),

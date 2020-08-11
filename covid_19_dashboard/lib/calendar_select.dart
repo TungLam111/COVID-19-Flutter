@@ -5,7 +5,8 @@ import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
 class Calender extends StatefulWidget {
   var country;
-  Calender({@required  this.country});
+  Map date;
+  Calender({@required  this.country, this.date});
   @override
  _CalenderState createState() =>  _CalenderState();
 }
@@ -94,7 +95,11 @@ class _CalenderState extends State<Calender> {
     ]);
     super.initState();
   }
-
+  String convert(DateTime date){
+    
+    return "${date.year}-${date.month}-${date.day}";
+  
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -104,7 +109,10 @@ class _CalenderState extends State<Calender> {
       onDayPressed: (DateTime date, List<Event> events) {
         this.setState(() => _currentDate2 = date);
         events.forEach((event) => print(event.title));
-        
+        print(_currentDate2.day);
+        print(_currentDate2.month);
+        print(_currentDate2.year);
+        print(convert(_currentDate2));
       },
       daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
@@ -115,7 +123,7 @@ class _CalenderState extends State<Calender> {
       weekFormat: false,
 //      firstDayOfWeek: 4,
       markedDatesMap: _markedDateMap,
-      height: 420.0,
+      height: 350.0,
       selectedDateTime: _currentDate2,
       targetDateTime: _targetDateTime,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
@@ -161,7 +169,7 @@ class _CalenderState extends State<Calender> {
         print('long pressed date $date');
       },
     );
-
+    
     return new  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -208,7 +216,20 @@ class _CalenderState extends State<Calender> {
                 margin: EdgeInsets.symmetric(horizontal: 16.0),
                 child: _calendarCarouselNoHeader,
               ),
-              //
+             
+              widget.date[widget.country][convert(_currentDate2)] != null ? Text("${widget.date[widget.country][convert(_currentDate2)]['confirmed']}"): Text("null"),
+              widget.date[widget.country][convert(_currentDate2)] != null ? Text("${widget.date[widget.country][convert(_currentDate2)]['deaths']}"): Text("null"),
+              widget.date[widget.country][convert(_currentDate2)] != null ? Text("${widget.date[widget.country][convert(_currentDate2)]['recovered']}"): Text("null"),
+              Column(
+                children: <Widget> [
+                  Row(children: <Widget> [
+                    
+                  ]),
+                  Row(children: <Widget> [
+
+                  ])
+                ],
+              )
             ],
           
         );

@@ -39,7 +39,7 @@ class _WorldwideState extends State<Worldwide> {
   Widget build(BuildContext context){
     var _page = [
       Listshow(info: widget.info, value: widget.value, mymap: widget.mymap),
-      Countrydata(value: widget.value, info: widget.info, countries: widget.countries, map: widget.map, mymap: widget.mymap)
+      Countrydata(value: widget.value, info: widget.info, countries: widget.countries, map: widget.map, mymap: widget.mymap, date: widget.date)
     ];
     return SafeArea(
       child: Scaffold(
@@ -55,7 +55,7 @@ class _WorldwideState extends State<Worldwide> {
               _page[0],
               _page[1],
               
-              Text("hyhy") // forum
+              Text("${widget.date['China']['2020-1-22']['confirmed']}") // forum
             ],
           ),
         ),
