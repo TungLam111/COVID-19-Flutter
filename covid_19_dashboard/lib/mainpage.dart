@@ -10,7 +10,8 @@ class Worldwide extends StatefulWidget{
   List countries;
   Map map;
   Map mymap;
-  Worldwide({@required this.value, this.info, this.countries, this.map,  this.mymap});
+  Map date;
+  Worldwide({@required this.value, this.info, this.countries, this.map,  this.mymap, this.date});
 
   @override
   _WorldwideState createState() => _WorldwideState();

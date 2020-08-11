@@ -13,12 +13,4 @@ class TimeSeri {
       recovered: json['recovered'].toString(),
     );
   }
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date;
-    data['confirmed'] = this.cases;
-    data['deaths'] = this.deaths;
-    data['recovered'] = this.recovered;
-    return data;
-  }
 }
