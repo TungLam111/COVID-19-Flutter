@@ -3,35 +3,37 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
+
 class Calender extends StatefulWidget {
   var country;
   Map date;
-  Calender({@required  this.country, this.date});
+  Calender({@required this.country, this.date});
   @override
- _CalenderState createState() =>  _CalenderState();
+  _CalenderState createState() => _CalenderState();
 }
+
 class _CalenderState extends State<Calender> {
   DateTime _currentDate = DateTime(2020, 8, 8);
   DateTime _currentDate2 = DateTime(2020, 8, 8);
-  String _currentMonth = DateFormat.yMMM().format(DateTime(2020, 8,8));
-  DateTime _targetDateTime = DateTime(2020, 8,8);
+  String _currentMonth = DateFormat.yMMM().format(DateTime(2020, 8, 8));
+  DateTime _targetDateTime = DateTime(2020, 8, 8);
 //  List<DateTime> _markedDate = [DateTime(2018, 9, 20), DateTime(2018, 10, 11)];
-  static Widget _eventIcon =  Container(
-    decoration:  BoxDecoration(
+  static Widget _eventIcon = Container(
+    decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(1000)),
         border: Border.all(color: Colors.blue, width: 2.0)),
-    child:  Icon(
+    child: Icon(
       Icons.person,
       color: Colors.amber,
     ),
   );
 
-  EventList<Event> _markedDateMap =  EventList<Event>(
+  EventList<Event> _markedDateMap = EventList<Event>(
     events: {
-       DateTime(2019, 2, 10): [
-         Event(
-          date:  DateTime(2019, 2, 10),
+      DateTime(2019, 2, 10): [
+        Event(
+          date: DateTime(2019, 2, 10),
           title: 'Event 1',
           icon: _eventIcon,
           dot: Container(
@@ -41,13 +43,13 @@ class _CalenderState extends State<Calender> {
             width: 5.0,
           ),
         ),
-         Event(
-          date:  DateTime(2019, 2, 10),
+        Event(
+          date: DateTime(2019, 2, 10),
           title: 'Event 2',
           icon: _eventIcon,
         ),
-         Event(
-          date:  DateTime(2019, 2, 10),
+        Event(
+          date: DateTime(2019, 2, 10),
           title: 'Event 3',
           icon: _eventIcon,
         ),
@@ -55,54 +57,53 @@ class _CalenderState extends State<Calender> {
     },
   );
 
-  CalendarCarousel  _calendarCarouselNoHeader;
+  CalendarCarousel _calendarCarouselNoHeader;
 
   @override
   void initState() {
     /// Add more events to _markedDateMap EventList
     _markedDateMap.add(
-         DateTime(2019, 2, 9),
-         Event(
-          date:  DateTime(2019, 2, 9),
+        DateTime(2019, 2, 9),
+        Event(
+          date: DateTime(2019, 2, 9),
           title: 'Event 5',
           icon: _eventIcon,
         ));
 
     _markedDateMap.add(
-         DateTime(2019, 2, 10),
-         Event(
-          date:  DateTime(2019, 2, 10),
+        DateTime(2019, 2, 10),
+        Event(
+          date: DateTime(2019, 2, 10),
           title: 'Event 4',
           icon: _eventIcon,
         ));
 
-    _markedDateMap.addAll( DateTime(2019, 2, 11), [
-       Event(
-        date:  DateTime(2019, 2, 11),
+    _markedDateMap.addAll(DateTime(2019, 2, 11), [
+      Event(
+        date: DateTime(2019, 2, 11),
         title: 'Event 1',
         icon: _eventIcon,
       ),
-       Event(
-        date:  DateTime(2019, 2, 11),
+      Event(
+        date: DateTime(2019, 2, 11),
         title: 'Event 2',
         icon: _eventIcon,
       ),
-       Event(
-        date:  DateTime(2019, 2, 11),
+      Event(
+        date: DateTime(2019, 2, 11),
         title: 'Event 3',
         icon: _eventIcon,
       ),
     ]);
     super.initState();
   }
-  String convert(DateTime date){
-    
+
+  String convert(DateTime date) {
     return "${date.year}-${date.month}-${date.day}";
-  
   }
+
   @override
   Widget build(BuildContext context) {
-
     /// Example Calendar Carousel without header and custom prev & next button
     _calendarCarouselNoHeader = CalendarCarousel<Event>(
       todayBorderColor: Colors.green,
@@ -127,9 +128,8 @@ class _CalenderState extends State<Calender> {
       selectedDateTime: _currentDate2,
       targetDateTime: _targetDateTime,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
-      markedDateCustomShapeBorder: CircleBorder(
-        side: BorderSide(color: Colors.yellow)
-      ),
+      markedDateCustomShapeBorder:
+          CircleBorder(side: BorderSide(color: Colors.yellow)),
       markedDateCustomTextStyle: TextStyle(
         fontSize: 18,
         color: Colors.blue,
@@ -169,69 +169,117 @@ class _CalenderState extends State<Calender> {
         print('long pressed date $date');
       },
     );
-    
-    return new  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                  top: 30.0,
-                  bottom: 16.0,
-                  left: 16.0,
-                  right: 16.0,
-                ),
-                child: new Row(
-                  children: <Widget>[
-                    Expanded(
-                        child: Text(
-                      _currentMonth,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24.0,
-                      ),
-                    )),
-                    FlatButton(
-                      child: Text('PREV'),
-                      onPressed: () {
-                        setState(() {
-                          _targetDateTime = DateTime(_targetDateTime.year, _targetDateTime.month -1);
-                          _currentMonth = DateFormat.yMMM().format(_targetDateTime);
-                        });
-                      },
-                    ),
-                    FlatButton(
-                      child: Text('NEXT'),
-                      onPressed: () {
-                        setState(() {
-                          _targetDateTime = DateTime(_targetDateTime.year, _targetDateTime.month +1);
-                          _currentMonth = DateFormat.yMMM().format(_targetDateTime);
-                        });
-                      },
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                child: _calendarCarouselNoHeader,
-              ),
-             
-              widget.date[widget.country][convert(_currentDate2)] != null ? Text("${widget.date[widget.country][convert(_currentDate2)]['confirmed']}"): Text("null"),
-              widget.date[widget.country][convert(_currentDate2)] != null ? Text("${widget.date[widget.country][convert(_currentDate2)]['deaths']}"): Text("null"),
-              widget.date[widget.country][convert(_currentDate2)] != null ? Text("${widget.date[widget.country][convert(_currentDate2)]['recovered']}"): Text("null"),
-              Column(
-                children: <Widget> [
-                  Row(children: <Widget> [
-                    
-                  ]),
-                  Row(children: <Widget> [
 
-                  ])
-                ],
+    return new Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.only(
+            top: 30.0,
+            bottom: 16.0,
+            left: 16.0,
+            right: 16.0,
+          ),
+          child: new Row(
+            children: <Widget>[
+              Expanded(
+                  child: Text(
+                _currentMonth,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24.0,
+                ),
+              )),
+              FlatButton(
+                child: Text('PREV'),
+                onPressed: () {
+                  setState(() {
+                    _targetDateTime = DateTime(
+                        _targetDateTime.year, _targetDateTime.month - 1);
+                    _currentMonth = DateFormat.yMMM().format(_targetDateTime);
+                  });
+                },
+              ),
+              FlatButton(
+                child: Text('NEXT'),
+                onPressed: () {
+                  setState(() {
+                    _targetDateTime = DateTime(
+                        _targetDateTime.year, _targetDateTime.month + 1);
+                    _currentMonth = DateFormat.yMMM().format(_targetDateTime);
+                  });
+                },
               )
             ],
-          
-        );
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 16.0),
+          child: _calendarCarouselNoHeader,
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+            margin: EdgeInsets.symmetric(horizontal: 15),
+            height: 100,
+            //width: MediaQuery.of(context).size.width * 0.9,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(1.0),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Card(
+                
+                  shadowColor: Colors.yellow,
+                    elevation: 6.0,
+                    child: Column(children: <Widget>[
+                      Text("Cases", style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.yellow)),
+                      SizedBox(height: 10),
+                      widget.date[widget.country][convert(_currentDate2)] !=
+                              null
+                          ? Text(
+                              "${widget.date[widget.country][convert(_currentDate2)]['confirmed']}", style: TextStyle(fontSize: 17))
+                          : Text("No data"),
+                    ])),
+                Card(
+                    shadowColor: Colors.red,
+                    elevation: 6.0,
+                    child: Column(children: <Widget>[
+                      Text("Deaths", style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.red)),
+                      SizedBox(height: 10),
+                      widget.date[widget.country][convert(_currentDate2)] !=
+                              null
+                          ? Text(
+                              "${widget.date[widget.country][convert(_currentDate2)]['deaths']}", style: TextStyle(fontSize: 17))
+                          : Text("No data"),
+                    ])),
+                Card(
+                  shadowColor: Colors.green,
+                    elevation: 6.0,
+                    child: Column(children: <Widget>[
+                      Text("Recovered", style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.green)),
+                      SizedBox(height: 10),
+                      widget.date[widget.country][convert(_currentDate2)] !=
+                              null
+                          ? Text(
+                              "${widget.date[widget.country][convert(_currentDate2)]['recovered']}", style: TextStyle(fontSize: 17))
+                          : Text("No data"),
+                    ])),
+                
+              ],
+            )),
+            SizedBox(height: 20)
+      ],
+    );
   }
 }

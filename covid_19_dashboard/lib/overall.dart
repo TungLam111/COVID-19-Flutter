@@ -86,10 +86,10 @@ class _ListshowState extends State<Listshow> {
                     duration: const Duration(milliseconds: 200),
                     width: MediaQuery.of(context).size.width,
                     alignment: Alignment.topCenter,
-                    height: closeTopContainer?0:MediaQuery.of(context).size.height* 0.3,
-                    child: CategoryScroller()),
+                    height: closeTopContainer?0:MediaQuery.of(context).size.height* 0.33,
+                    child: CarouselWithIndicatorDemo()),
               ),
-              SizedBox(height: 5),
+              
               Container(
                 child: InfoDetail(info : widget.info),
               ),

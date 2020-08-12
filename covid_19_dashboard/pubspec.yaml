@@ -30,7 +30,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   bezier_chart: ^1.0.17+1
-  
+  carousel_slider: ^2.2.1
+  url_launcher: ^5.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -48,7 +49,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/meliquestreet_20200723_111219_0.jpg
+     - assets/images/enjoy.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

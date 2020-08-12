@@ -77,21 +77,21 @@ class _WorldwideState extends State<Worldwide> {
         items: [
           BottomNavyBarItem(
             icon: new Icon(Icons.person),
-            title: new Text('Mentor'),
+            title: new Text('Home'),
             activeColor: Colors.indigoAccent,
             inactiveColor: Colors.blueGrey[200],
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: new Icon(Icons.home),
-            title: new Text('Home'),
+            title: new Text('Detail'),
             activeColor: Colors.teal,
             inactiveColor: Colors.blueGrey[200],
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: new Icon(Icons.chat_bubble),
-            title: new Text('Forum'),
+            title: new Text('More'),
             activeColor: Colors.blue[700],
             inactiveColor: Colors.blueGrey[200],
             textAlign: TextAlign.center,

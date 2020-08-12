@@ -648,7 +648,7 @@ date['Lesotho'] = lesotho;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -658,7 +658,7 @@ date['Lesotho'] = lesotho;
               Container(
                 padding: EdgeInsets.fromLTRB(0, 100, 0, 50),
                 child: Image(
-                  image: AssetImage('assets/images/meliquestreet_20200723_111219_0.jpg'),
+                  image: AssetImage('assets/images/enjoy.jpg'),
                 ),
               ),
               RichText(
@@ -670,13 +670,13 @@ date['Lesotho'] = lesotho;
                   children: <TextSpan> [
                     TextSpan(
                         text: 'STAY ',
-                        style: TextStyle(color: Colors.white)),
+                        style: TextStyle(color: Colors.red[200])),
                     TextSpan(
                         text: 'HOME  ',
                         style: TextStyle(color: Colors.blueAccent)),
                     TextSpan(
                         text: 'STAY ',
-                        style: TextStyle(color: Colors.white)),
+                        style: TextStyle(color: Colors.red[200])),
                     TextSpan(
                         text: 'SAFE',
                         style: TextStyle(color: Colors.green)),
