@@ -49,14 +49,36 @@ class CategoryScroller extends StatelessWidget {
                               ))));
   }
 }
-final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+class Article{
+  String thumb;
+  String title;
+ 
+ 
+  Article({this.thumb,this.title});
+}
+final List<Article> imgList = [
+  Article(thumb: 'https://i1-suckhoe.vnecdn.net/2020/08/15/benh-vien-2-6538-1597494423.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=1vt-CJ9rqDuN1WOkM8NM_A',
+   title: 'Bệnh nhân khỏi Covid-19 song không thể về nhà'),
+  Article(thumb: 'https://i1-suckhoe.vnecdn.net/2020/08/15/1-1597492895-3606-1597493135.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=KBgfT7atah-d2x1U61cEnw',
+  title: 'Thêm 10 bệnh nhân Đà Nẵng khỏi Covid-19'),
+  Article(thumb: 'https://i1-suckhoe.vnecdn.net/2020/08/15/IMG9787-1597500022-6481-1597500068.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=UKmBxR9OxYYEg4Bika0Zkw',
+  title: 'Đà Nẵng tìm người đến đám tang có 3 người nhiễm nCoV'),
+  Article(thumb: 'https://i1-suckhoe.vnecdn.net/2020/08/15/200316-coronavirus-new-york-ph-4799-3083-1597459128.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=gLvDEbfrv3Xa2E_7TP-NVA',
+  title: 'Tin giả về Covid-19 tràn lan'),
+  Article(thumb: 'https://i1-suckhoe.vnecdn.net/2020/08/15/ah8-jpg-1587272421-6481-159673-8439-4040-1597476172.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=3Is14mfQJ16LAxBKnLQKCw',
+  title: 'Ba bệnh nhân Covid-19 ở Hà Nội tổn thương 60% phổi') ,
+  Article(thumb: 'https://i1-suckhoe.vnecdn.net/2020/08/14/Mr-Son-9398-1597422298.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=EL2t-y9VOr-l7GR_MMqSkA',
+  title: 'Ba bài học rút ra từ điều trị Covid-19 ở Đà Nẵng')
 ];
+/*
+final List<String> imgList = [
+  'https://i1-suckhoe.vnecdn.net/2020/08/15/benh-vien-2-6538-1597494423.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=1vt-CJ9rqDuN1WOkM8NM_A',
+  'https://i1-suckhoe.vnecdn.net/2020/08/15/1-1597492895-3606-1597493135.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=KBgfT7atah-d2x1U61cEnw',
+  'https://i1-suckhoe.vnecdn.net/2020/08/15/IMG9787-1597500022-6481-1597500068.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=UKmBxR9OxYYEg4Bika0Zkw',
+  'https://i1-suckhoe.vnecdn.net/2020/08/15/200316-coronavirus-new-york-ph-4799-3083-1597459128.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=gLvDEbfrv3Xa2E_7TP-NVA',
+  'https://i1-suckhoe.vnecdn.net/2020/08/15/ah8-jpg-1587272421-6481-159673-8439-4040-1597476172.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=3Is14mfQJ16LAxBKnLQKCw' ,
+  'https://i1-suckhoe.vnecdn.net/2020/08/14/Mr-Son-9398-1597422298.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=EL2t-y9VOr-l7GR_MMqSkA'
+];*/
 
 final List<Widget> imageSliders = imgList.map((item) => GestureDetector(
   onTap: (){
@@ -68,7 +90,7 @@ final List<Widget> imageSliders = imgList.map((item) => GestureDetector(
       borderRadius: BorderRadius.all(Radius.circular(5.0)),
       child: Stack(
         children: <Widget>[
-          Image.network(item, fit: BoxFit.cover, width: 1000.0),
+          Image.network(item.thumb, fit: BoxFit.cover, width: 1000.0),
           Positioned(
             bottom: 0.0,
             left: 0.0,
@@ -85,8 +107,9 @@ final List<Widget> imageSliders = imgList.map((item) => GestureDetector(
                 ),
               ),
               padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              child: Text(
-                'No. ${imgList.indexOf(item)} image',
+              child: Text(             
+                '${item.title}',
+                maxLines: 2,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,
