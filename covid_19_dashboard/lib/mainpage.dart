@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:covid_19_dashboard/overall.dart';
 import 'package:covid_19_dashboard/detail.dart';
 import 'fetch.dart';
-
 class Worldwide extends StatefulWidget{
+  //Widget color;
   var value;
   var info;
   List countries;
   Map map;
   Map mymap;
   Map date;
-  Worldwide({@required this.value, this.info, this.countries, this.map,  this.mymap, this.date});
+  Worldwide({@required this.value,  this.info, this.countries, this.map,  this.mymap, this.date});
 
   @override
   _WorldwideState createState() => _WorldwideState();
@@ -22,7 +22,7 @@ class _WorldwideState extends State<Worldwide> {
   int index = 0;
   int _currentIndex = 0;
   PageController _pageController;
-
+  bool haha = false;
   @override
   void initState() {
     super.initState();
@@ -38,7 +38,7 @@ class _WorldwideState extends State<Worldwide> {
  @override
   Widget build(BuildContext context){
     var _page = [
-      Listshow(info: widget.info, value: widget.value, mymap: widget.mymap),
+      Listshow(info: widget.info,  value: widget.value, mymap: widget.mymap),
       Countrydata(value: widget.value, info: widget.info, countries: widget.countries, map: widget.map, mymap: widget.mymap, date: widget.date)
     ];
     return SafeArea(
@@ -55,7 +55,6 @@ class _WorldwideState extends State<Worldwide> {
               _page[0],
               _page[1],
               
-              Text("${widget.date['China']['2020-1-22']['confirmed']}") // forum
             ],
           ),
         ),

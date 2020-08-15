@@ -5,9 +5,10 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'structure.dart';
-//import 'constants.dart';
 import 'mainpage.dart';
 import 'data.dart';
+import 'package:flutter/rendering.dart';
+
 class MainHome extends StatefulWidget{
 
   MainHome({Key key}) : super(key: key);
@@ -17,11 +18,11 @@ class MainHome extends StatefulWidget{
 }
 
 class _MainHomeState extends State<MainHome> {
- // List _flag;
+ 
   List _countries = [];
   HashMap _map = new HashMap<String, Detail>();
   HashMap _mymap = new HashMap<String, String>();
-  HashMap afghanistan = new HashMap<String, dynamic>();
+HashMap afghanistan = new HashMap<String, dynamic>();
 HashMap albania = new HashMap<String, dynamic>();
 HashMap algeria = new HashMap<String, dynamic>();
 HashMap andorra = new HashMap<String, dynamic>();
@@ -247,9 +248,11 @@ Future<Map<String, dynamic>> fetchTimeSeri() async {
     throw Exception('${response.statusCode}');
   }
  }
+  
   @override
   void initState() {
     super.initState();
+    
     fetchDetail().then((value){
       for (var i = 0; i< value.length; i++){
         _countries.add(value[i].country);
@@ -636,13 +639,14 @@ date['Yemen'] = yemen;
 date['Comoros'] = comoros;
 date['Tajikistan'] = tajikistan;
 date['Lesotho'] = lesotho;
+
     fetchAll().then((res) {
       return Navigator.push(context, MaterialPageRoute(
-            builder: (context) => Worldwide(value: value, info: res, countries: _countries, map: _map, mymap: _mymap, date: date)));
+            builder: (context) => Worldwide( value: value, info: res, countries: _countries, map: _map, mymap: _mymap, date: date)));
     });
     });
+    
     });
-
   }
 
   @override

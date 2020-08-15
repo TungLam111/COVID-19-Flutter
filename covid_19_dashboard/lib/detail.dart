@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'calendar_select.dart';
+import 'chart_self.dart';
+
 class Countrydata extends StatefulWidget{
   var value;
   var info;
@@ -154,7 +156,8 @@ class _CountrydataState extends State<Countrydata> {
                       ],
                     ),
                   ),
-              Calender(country: val, date: widget.date)
+              Calender(country: val, date: widget.date),
+              Chart(country: val, date: widget.date),
                   ],
                 )
               ),
