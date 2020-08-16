@@ -103,7 +103,8 @@ class _ListshowState extends State<Listshow> {
               SizedBox(height: 5),
               Container(
                 color: Colors.red[200], 
-                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                 padding: EdgeInsets.symmetric(vertical: 10),
+                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                 children: [
                   Container(
@@ -136,8 +137,11 @@ class _ListshowState extends State<Listshow> {
                itemCount: widget.province.length,
                itemBuilder: (context, index){
                  var prov = widget.province[index];
+                 Color color = index%2==1 ? Colors.red[100] : Colors.white ;
                  return Container(
-                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                   color: color,
+                   margin: EdgeInsets.symmetric(horizontal: 20),
+                   padding: EdgeInsets.symmetric(vertical: 10),
                    child: Row(
                      children: [
                        
