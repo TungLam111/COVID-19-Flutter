@@ -16,3 +16,21 @@ class Detail {
     );
   }
 }
+class Vietnam {
+  String province;
+  int cases; 
+  int death;
+  int critical;
+  int cure;
+  Vietnam({this.province,this.cases,this.death,this.critical,this.cure});
+
+  factory Vietnam.fromJson(Map<String, dynamic> json) {
+    return Vietnam(
+      province: json['province'].toString(),
+      cases:json['cases'],
+      death: json['death'],
+      critical: json['critical'],
+      cure : json['cure'],
+    );
+  }
+}

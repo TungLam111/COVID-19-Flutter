@@ -8,6 +8,7 @@ import 'structure.dart';
 import 'mainpage.dart';
 import 'data.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 class MainHome extends StatefulWidget{
 
@@ -211,6 +212,7 @@ HashMap comoros = new HashMap<String, dynamic>();
 HashMap tajikistan = new HashMap<String, dynamic>();
 HashMap lesotho = new HashMap<String, dynamic>();
 //fetch data of list of country
+
   Future<List<Detail>> fetchDetail() async {
     var response =
       await http.get('https://corona.lmao.ninja/v2/countries');
@@ -236,6 +238,12 @@ Future<Map<String, dynamic>> fetchTimeSeri() async {
     throw Exception('${response.statusCode}');
     
   }
+}
+Future<List<Vietnam>> fetchVietNam() async {
+  var response = await rootBundle.loadString('assets/province.json');
+  var jsonObj = json.decode(response.toString()).cast<Map<String, dynamic>>();
+  return jsonObj.map<Vietnam>((json) => Vietnam.fromJson(json))
+        .toList(growable: false);
 }
 // fetch data of world
   Future<Detail> fetchAll() async {
@@ -640,9 +648,11 @@ date['Comoros'] = comoros;
 date['Tajikistan'] = tajikistan;
 date['Lesotho'] = lesotho;
 
+fetchVietNam().then((prov){
     fetchAll().then((res) {
       return Navigator.push(context, MaterialPageRoute(
-            builder: (context) => Worldwide( value: value, info: res, countries: _countries, map: _map, mymap: _mymap, date: date)));
+            builder: (context) => Worldwide(province: prov, value: value, info: res, countries: _countries, map: _map, mymap: _mymap, date: date)));
+    });
     });
     });
     

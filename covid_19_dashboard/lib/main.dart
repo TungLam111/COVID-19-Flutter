@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'mainhome.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
-
+import 'map.dart';
 void main() => runApp(App());
 
 class App extends StatelessWidget {

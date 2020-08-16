@@ -3,13 +3,13 @@ import 'constants.dart';
 import 'structure.dart';
 import 'package:flutter/rendering.dart';
 import 'map_world.dart';
-
+import 'map_vietnam.dart';
 class Listshow extends StatefulWidget{
-  //Widget color;
+  List province;
   var info;
   var value;
   Map mymap;
-  Listshow({@required  this.info, this.value,  this.mymap});
+  Listshow({@required  this.info, this.value,  this.mymap, this.province});
 
   @override
   _ListshowState createState() => _ListshowState();
@@ -98,6 +98,75 @@ class _ListshowState extends State<Listshow> {
               ),
               SizedBox(height: 5),
               MapColor(data: widget.value),
+              SizedBox(height: 5),
+              MapVietnam(data: widget.province),
+              SizedBox(height: 5),
+              Container(
+                color: Colors.red[200], 
+                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Row(
+                children: [
+                  Container(
+                         width: 100,
+                         child: Text("Province", style: TextStyle(color: Colors.white))
+                       ),
+                       Container(
+                         width: 70,
+                         child: Text("Confirmed",style: TextStyle(color: Colors.white))
+                       ),
+                       Container(
+                         width: 50,
+                         child: Text("Cured",style: TextStyle(color: Colors.white))
+                       ),
+                       Container(
+                         width: 50,
+                         child: Text("Critical",style: TextStyle(color: Colors.white))
+                       ),
+                       Container(
+                         width: 50,
+                         child: Text("Death",style: TextStyle(color: Colors.white))
+                       )
+                ],
+              )),
+              SingleChildScrollView(child:
+              ListView.builder(
+               shrinkWrap: true,
+               primary: false,
+               physics: BouncingScrollPhysics(),
+               itemCount: widget.province.length,
+               itemBuilder: (context, index){
+                 var prov = widget.province[index];
+                 return Container(
+                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                   child: Row(
+                     children: [
+                       
+                       Container(
+                         width: 100,
+                         child: Text("${prov.province}")
+                       ),
+                       Container(
+                         width: 70,
+                         child: Text("${prov.cases}")
+                       ),
+                       Container(
+                         width: 50,
+                         child: Text("${prov.cure}")
+                       ),
+                       Container(
+                         width: 50,
+                         child: Text("${prov.critical}")
+                       ),
+                       Container(
+                         width: 50,
+                         child: Text("${prov.death}")
+                       )
+                     ],
+                   )
+                 );
+               },
+             ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget> [
@@ -121,6 +190,7 @@ class _ListshowState extends State<Listshow> {
               ),
                 ]
               ),
+             
              ListView.builder(
                   shrinkWrap: true,
                   primary: false,
@@ -143,7 +213,7 @@ class _ListshowState extends State<Listshow> {
         }
                 )
               
-
+             
             ]
           )
           ,

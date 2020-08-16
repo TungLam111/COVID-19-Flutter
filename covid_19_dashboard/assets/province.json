@@ -1,0 +1,443 @@
+[
+    {
+        "province": "Đà Nẵng",
+        "cases": 341,
+        "critical": 279,
+        "cure": 42,
+        "death": 20
+    },
+    {
+        "province": "Hà Nội",
+        "cases": 151,
+        "critical": 30,
+        "cure": 121,
+        "death": 0
+    },
+    {
+        "province": "Quảng Nam",
+        "cases": 95,
+        "critical": 85,
+        "cure": 7,
+        "death": 3
+    },
+    {
+        "province": "Hồ Chí Minh city",
+        "cases": 77,
+        "critical": 15,
+        "cure": 62,
+        "death": 0
+    },
+    {
+        "province": "Bà Rịa - Vũng Tàu",
+        "cases": 37,
+        "critical": 11,
+        "cure": 26,
+        "death": 0
+    },
+    {
+        "province": "Thái Bình",
+        "cases": 31,
+        "critical": 1,
+        "cure": 30,
+        "death": 0
+    },
+    {
+        "province": "Bạc Liêu",
+        "cases": 25,
+        "critical": 1,
+        "cure": 24,
+        "death": 0
+    },
+    {
+        "province": "Ninh Bình",
+        "cases": 23,
+        "critical": 2,
+        "cure": 21,
+        "death": 0
+    },
+    {
+        "province": "Vĩnh Phúc",
+        "cases": 19,
+        "critical": 0,
+        "cure": 19,
+        "death": 0
+    },
+    {
+        "province": "Thanh Hóa",
+        "cases": 18,
+        "critical": 2,
+        "cure": 16,
+        "death": 0
+    },
+    {
+        "province": "Khánh Hòa",
+        "cases": 11,
+        "critical": 10,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Quảng Ninh",
+        "cases": 11,
+        "critical": 0,
+        "cure": 11,
+        "death": 0
+    },
+    {
+        "province": "Bắc Giang",
+        "cases": 10,
+        "critical": 6,
+        "cure": 4,
+        "death": 0
+    },
+    {
+        "province": "Hải Dương",
+        "cases": 9,
+        "critical": 4,
+        "cure": 5,
+        "death": 0
+    },
+    {
+        "province": "Bình Thuận",
+        "cases": 9,
+        "critical": 0,
+        "cure": 9,
+        "death": 0
+    },
+    {
+        "province": "Nam Định",
+        "cases": 8,
+        "critical": 5,
+        "cure": 3,
+        "death": 0
+    },
+    {
+        "province": "Quảng Ngãi",
+        "cases": 7,
+        "critical": 5,
+        "cure": 2,
+        "death": 0
+    },
+    {
+        "province": "Quảng Trị",
+        "cases": 7,
+        "critical": 6,
+        "cure": 0,
+        "death": 1
+    },
+    {
+        "province": "Đồng Tháp",
+        "cases": 6,
+        "critical": 0,
+        "cure": 6,
+        "death": 0
+    },
+    {
+        "province": "Hoà Bình",
+        "cases": 6,
+        "critical": 2,
+        "cure": 4,
+        "death": 0
+    },
+    {
+        "province": "Hưng Yên",
+        "cases": 5,
+        "critical": 0,
+        "cure": 5,
+        "death": 0
+    },
+    {
+        "province": "Hà Nam",
+        "cases": 5,
+        "critical": 1,
+        "cure": 4,
+        "death": 0
+    },
+    {
+        "province": "Lạng Sơn",
+        "cases": 4,
+        "critical": 4,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Hà Tĩnh",
+        "cases": 4,
+        "critical": 0,
+        "cure": 4,
+        "death": 0
+    },
+    {
+        "province": "Trà Vinh",
+        "cases": 4,
+        "critical": 2,
+        "cure": 2,
+        "death": 0
+    },
+    {
+        "province": "Tây Ninh",
+        "cases": 4,
+        "critical": 0,
+        "cure": 4,
+        "death": 0
+    },
+    {
+        "province": "Đồng Nai",
+        "cases": 3,
+        "critical": 2,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Hải Phòng",
+        "cases": 3,
+        "critical": 3,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Đắk Lắk",
+        "cases": 3,
+        "critical": 3,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Cần Thơ",
+        "cases": 2,
+        "critical": 0,
+        "cure": 2,
+        "death": 0
+    },
+    {
+        "province": "Ninh Thuận",
+        "cases": 2,
+        "critical": 0,
+        "cure": 2,
+        "death": 0
+    },
+    {
+        "province": "Thừa Thiên - Huế",
+        "cases": 2,
+        "critical": 0,
+        "cure": 2,
+        "death": 0
+    },
+    {
+        "province": "Lào Cai",
+        "cases": 2,
+        "critical": 0,
+        "cure": 2,
+        "death": 0
+    },
+    {
+        "province": "Thái Nguyên",
+        "cases": 1,
+        "critical": 0,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Cà Mau",
+        "cases": 1,
+        "critical": 0,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Hà Giang",
+        "cases": 1,
+        "critical": 0,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Bến Tre",
+        "cases": 1,
+        "critical": 0,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Lai Châu",
+        "cases": 1,
+        "critical": 0,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Bắc Ninh",
+        "cases": 1,
+        "critical": 0,
+        "cure": 1,
+        "death": 0
+    },
+    {
+        "province": "Kiên Giang",
+        "cases": 1,
+        "critical": 1,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "An Giang",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Kon Tum",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Đắk Nông",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Sóc Trăng",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Bình Phước",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Tuyên Quang",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Vĩnh Long",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Lâm Đồng",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Bình Định",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Nghệ An",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Phú Yên",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Sơn La",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Cao Bằng",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Yên Bái",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Gia Lai",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Bình Dương",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Tiền Giang",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Điện Biên",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Long An",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Hậu Giang",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Phú Thọ",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Quảng Bình",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    },
+    {
+        "province": "Bắc Kạn",
+        "cases": 0,
+        "critical": 0,
+        "cure": 0,
+        "death": 0
+    }
+]

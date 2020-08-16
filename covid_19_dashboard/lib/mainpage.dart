@@ -4,14 +4,14 @@ import 'package:covid_19_dashboard/overall.dart';
 import 'package:covid_19_dashboard/detail.dart';
 import 'fetch.dart';
 class Worldwide extends StatefulWidget{
-  //Widget color;
+  List province;
   var value;
   var info;
   List countries;
   Map map;
   Map mymap;
   Map date;
-  Worldwide({@required this.value,  this.info, this.countries, this.map,  this.mymap, this.date});
+  Worldwide({@required this.value, this.province, this.info, this.countries, this.map,  this.mymap, this.date});
 
   @override
   _WorldwideState createState() => _WorldwideState();
@@ -38,7 +38,7 @@ class _WorldwideState extends State<Worldwide> {
  @override
   Widget build(BuildContext context){
     var _page = [
-      Listshow(info: widget.info,  value: widget.value, mymap: widget.mymap),
+      Listshow(info: widget.info,  value: widget.value, mymap: widget.mymap, province: widget.province),
       Countrydata(value: widget.value, info: widget.info, countries: widget.countries, map: widget.map, mymap: widget.mymap, date: widget.date)
     ];
     return SafeArea(
@@ -54,7 +54,7 @@ class _WorldwideState extends State<Worldwide> {
             children: <Widget>[
               _page[0],
               _page[1],
-              
+              Center(child: Text("AWWWWWW "))
             ],
           ),
         ),
