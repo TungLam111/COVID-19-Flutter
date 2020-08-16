@@ -5,6 +5,8 @@ COVID-19 pageview has been completed.
 
 But there is still not a consistency between country name between APIs (like USA and United States) and I will fix it later. 
 
+The third pageview is empty since i intend to add other information to enrich the app so please dont mind it.  
+
 Please contact me via lamtungphan8@gmail.com if you can not watch the content. 
 
 Thank you. 
